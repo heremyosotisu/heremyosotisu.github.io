@@ -12,37 +12,27 @@
   </style>
 </head>
 <body>
-  <h1>방</h1>
-  <h2>입니다!</h2>
-  <h3>메롱메롱</h3>
-  <p>
-    안녕...? <br>
-  </p>
-  <!-- 카테고리 버튼 -->
-  <button onclick="showCategory('books')">책</button>
-  <button onclick="showCategory('paintings')">그림</button>
+<h1>방</h1>
 
-  <!-- 내용 영역 -->
-  <div id="books" style="display:none;">
-    <h2>책 목록</h2>
-    <p>책1, 책2, 책3…</p>
-  </div>
+<!-- 클릭용 글씨 -->
+<p style="cursor:pointer; color:blue;" onclick="toggleCategory('books')">
+  책
+</p>
 
-  <div id="paintings" style="display:none;">
-    <h2>그림 목록</h2>
-    <p>그림1, 그림2, 그림3…</p>
-  </div>
+<!-- 내용 영역 (처음엔 숨김) -->
+<div id="books" style="display:none; margin-left:20px;">
+  <p>책1, 책2, 책3…</p>
+</div>
 
-  <!-- JS는 body 끝에 넣기 -->
-  <script>
-    function showCategory(category) {
-      // 모든 카테고리 숨기기
-      document.getElementById('books').style.display = 'none';
-      document.getElementById('paintings').style.display = 'none';
-      
-      // 선택한 카테고리만 보여주기
-      document.getElementById(category).style.display = 'block';
+<script>
+  function toggleCategory(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === "none") {
+      el.style.display = "block";
+    } else {
+      el.style.display = "none";
     }
-  </script>
+  }
+</script>
 </body>
 </html>
